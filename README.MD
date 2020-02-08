@@ -29,3 +29,13 @@ the JettyLocalRunner.java file.  API's will be available on http://localhost:800
 ```
 mvn clean package
 ```
+
+## End Points
+```
+[POST] /1.0/author
+[GET] /1.0/author
+[GET] /1.0/author/{name}
+[PUT] /1.0/book/add/{id}
+[GET] /1.0/book
+[GET] /1.0/book/{id}
+```
