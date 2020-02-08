@@ -18,7 +18,7 @@ public abstract class ConnectionBase {
         properties.put("javax.persistence.jdbc.password", System.getenv("password"));
 
         EntityManagerFactory entityManagerFactory = Persistence.
-                createEntityManagerFactory("dvsa.serverless.model", properties);
+                createEntityManagerFactory("hibernate.lambda.example.model", properties);
 
         this.entityManager = entityManagerFactory.createEntityManager();
     }

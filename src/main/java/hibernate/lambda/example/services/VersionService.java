@@ -23,7 +23,7 @@ public class VersionService {
             buildDateTime = properties.getProperty("buildDateTime");
         }
 
-        response.setName("DVSA Serverless API");
+        response.setName("Hibernate Lambda Example API");
         response.setVersion(version);
         response.setBuildDateTime(buildDateTime);
 
