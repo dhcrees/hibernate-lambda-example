@@ -16,7 +16,7 @@ import java.io.OutputStream;
 public class ApplicationHandler implements RequestStreamHandler {
 
     private static final ResourceConfig jerseyApplication = new ResourceConfig()
-            .packages("dvsa.serverless")
+            .packages("hibernate.lambda.example")
             .property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true)
             .property(ServerProperties.BV_DISABLE_VALIDATE_ON_EXECUTABLE_OVERRIDE_CHECK, true)
             .register(JacksonFeature.class)
