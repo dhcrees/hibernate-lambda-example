@@ -17,6 +17,11 @@ public class AuthorResource extends ConnectionBase {
     private EntityManager entityManager = getEntityManager();
     private static final String ERROR = "Exception Thrown";
 
+    /**
+     * Save a new Author and Book to the database
+     * @param author Author
+     * @return null
+     */
     @POST
     @Path("/1.0/author")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -37,6 +42,10 @@ public class AuthorResource extends ConnectionBase {
         return null;
     }
 
+    /**
+     * Returns a list of all authors and their books
+     * @return List of Authors
+     */
     @GET
     @Path("/1.0/author")
     @Produces(MediaType.APPLICATION_JSON)
@@ -52,6 +61,11 @@ public class AuthorResource extends ConnectionBase {
         return null;
     }
 
+    /**
+     * Find an Author by name
+     * @param name String representing the authors name
+     * @return Author
+     */
     @GET
     @Path("/1.0/author/{name}")
     @Produces(MediaType.APPLICATION_JSON)

@@ -18,6 +18,12 @@ public class BooksResource extends ConnectionBase {
     private EntityManager entityManager = getEntityManager();
     private static final String ERROR = "Exception Thrown";
 
+    /**
+     * Save a book to an existing Author
+     * @param book Book to save
+     * @param id Id of the Author
+     * @return Null
+     */
     @PUT
     @Path("/1.0/book/add/{id}")
     @Consumes(MediaType.APPLICATION_JSON)
@@ -41,6 +47,10 @@ public class BooksResource extends ConnectionBase {
         return null;
     }
 
+    /**
+     * Returns a list of all books
+     * @return List of Books
+     */
     @GET
     @Path("/1.0/book")
     @Produces(MediaType.APPLICATION_JSON)
@@ -58,6 +68,11 @@ public class BooksResource extends ConnectionBase {
         return null;
     }
 
+    /**
+     * Find a book by its ID
+     * @param id Int of the Books ID
+     * @return Book
+     */
     @GET
     @Path("/1.0/book/{id}")
     @Produces(MediaType.APPLICATION_JSON)
