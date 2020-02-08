@@ -21,7 +21,7 @@ On first load the tables will be created.
 Jackson specific annotations have been added to the Book (@JsonBackReference) and Author (@JsonManagedReference) models
 to resolve the recursive error jackson was throwing when serialising the objects to Json.
 
-If running in Intellij, use the EnvFile plug in to select the settings.yaml file and the execute
+If running in Intellij, use the EnvFile plug in to select the settings.yaml file and then execute
 the JettyLocalRunner.java file.  API's will be available on http://localhost:8000
 
 ## Build
