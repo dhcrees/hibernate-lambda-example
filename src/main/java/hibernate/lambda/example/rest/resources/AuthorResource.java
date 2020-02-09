@@ -52,10 +52,15 @@ public class AuthorResource extends ConnectionBase {
     public Response getAllAuthors() {
 
         try {
+            entityManager.getTransaction().begin();
             List<Author> authors = entityManager.createQuery("from Author", Author.class).getResultList();
+            entityManager.getTransaction().commit();
+
             return Response.status(Response.Status.OK).entity(authors).build();
         } catch (Exception e) {
             LOGGER.error(ERROR + e);
+        } finally {
+            entityManager.close();
         }
 
         return null;
@@ -79,7 +84,9 @@ public class AuthorResource extends ConnectionBase {
             return Response.status(Response.Status.OK).entity(author).build();
         } catch (Exception e) {
             LOGGER.error(ERROR + e);
-        } 
+        }  finally {
+            entityManager.close();
+        }
 
         return null;
     }
