@@ -96,4 +96,30 @@ public class BooksResource extends ConnectionBase {
         return null;
     }
 
+    /**
+     * Lists all books by a given name
+     * @param name book name
+     * @return list of books
+     */
+    @GET
+    @Path("/1.0/book/name/{name}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getBookByName(@PathParam("name") String name) {
+
+        try {
+            List<Book> books = entityManager.createNamedQuery("Book.findByName", Book.class)
+                    .setParameter("name", name)
+                    .getResultList();
+
+            return Response.status(Response.Status.OK).entity(books).build();
+        } catch (Exception e) {
+            LOGGER.error(ERROR + e);
+        }  finally {
+            entityManager.close();
+            entityManagerFactory.close();
+        }
+
+        return null;
+    }
+
 }

@@ -38,4 +38,5 @@ mvn clean package
 [PUT] /1.0/book/add/{id}
 [GET] /1.0/book
 [GET] /1.0/book/{id}
+[GET] /1.0/book/name/{name}
 ```
