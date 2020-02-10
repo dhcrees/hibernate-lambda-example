@@ -5,6 +5,7 @@ import hibernate.lambda.example.model.Author;
 import org.apache.log4j.Logger;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -15,6 +16,7 @@ public class AuthorResource extends ConnectionBase {
 
     private static final Logger LOGGER = Logger.getLogger(AuthorResource.class);
     private EntityManager entityManager = getEntityManager();
+    private EntityManagerFactory entityManagerFactory = getEntityManagerFactory();
     private static final String ERROR = "Exception Thrown";
 
     /**
@@ -37,6 +39,7 @@ public class AuthorResource extends ConnectionBase {
             LOGGER.error(ERROR + e);
         } finally {
             entityManager.close();
+            entityManagerFactory.close();
         }
 
         return null;
@@ -61,6 +64,7 @@ public class AuthorResource extends ConnectionBase {
             LOGGER.error(ERROR + e);
         } finally {
             entityManager.close();
+            entityManagerFactory.close();
         }
 
         return null;
@@ -86,6 +90,7 @@ public class AuthorResource extends ConnectionBase {
             LOGGER.error(ERROR + e);
         }  finally {
             entityManager.close();
+            entityManagerFactory.close();
         }
 
         return null;
