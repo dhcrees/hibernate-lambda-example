@@ -8,6 +8,7 @@ import java.util.HashMap;
 public abstract class ConnectionBase {
 
     private EntityManager entityManager;
+    private EntityManagerFactory entityManagerFactory;
 
     public ConnectionBase() {
 
@@ -17,7 +18,7 @@ public abstract class ConnectionBase {
         properties.put("javax.persistence.jdbc.user", System.getenv("username"));
         properties.put("javax.persistence.jdbc.password", System.getenv("password"));
 
-        EntityManagerFactory entityManagerFactory = Persistence.
+        this.entityManagerFactory = Persistence.
                 createEntityManagerFactory("hibernate.lambda.example.model", properties);
 
         this.entityManager = entityManagerFactory.createEntityManager();
@@ -25,5 +26,9 @@ public abstract class ConnectionBase {
 
     public EntityManager getEntityManager() {
         return entityManager;
+    }
+
+    public EntityManagerFactory getEntityManagerFactory() {
+        return entityManagerFactory;
     }
 }
