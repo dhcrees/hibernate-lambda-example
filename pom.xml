@@ -144,7 +144,7 @@
         </dependency>
         <!--End of Miscellaneous Dependencies -->
     </dependencies>
-    
+
     <build>
         <plugins>
             <plugin>
